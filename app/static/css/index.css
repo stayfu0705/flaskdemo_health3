@@ -1,0 +1,16 @@
+.showbanner img{
+    width:100%
+}
+
+
+ui,li {
+    list-style: none;
+}
+#news{
+    height: 75px;
+    overflow: hidden;
+}
+
+.information{
+    min-height:300px;
+}

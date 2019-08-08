@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{super()}}
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+
+<div class="showbanner">
+    <section style="min-height: 500px">
+        <img class="mySlides" src="{{url_for('static',filename='images/banner1.png')}}" >
+        <img class="mySlides" src="{{url_for('static',filename='images/banner2.png')}}" >
+        <img class="mySlides" src="{{url_for('static',filename='images/banner3.png')}}" >
+        <img class="mySlides" src="{{url_for('static',filename='images/banner4.png')}}" >
+        <img class="mySlides" src="{{url_for('static',filename='images/banner5.png')}}" >
+        <img class="mySlides" src="{{url_for('static',filename='images/banner6.png')}}" >
+    </section>
+<div class="information">
+    <section class="w3-container w3-center" style="max-width:600px">
+      <h2 class="w3-wide">Hospital Assistant</h2>
+      <p class="w3-opacity"><i>We help your work better!</i></p>
+    </section>
+</div>
+
+
+
+<script>
+// Automatic Slideshow - change image every 3 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 3600);
+}
+
+
+</script>
+
+{% endblock %}
+
+
+{% block footer %}{% endblock %}

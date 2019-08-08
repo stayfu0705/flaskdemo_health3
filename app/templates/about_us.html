@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/about_us.css')}}">
+
+<div class="main">
+    <section class="w3-container w3-center" style="">
+      <br>
+      <br>
+      <h1 class="w3-wide">Hospital Assistant</h1>
+      <p class="w3-opacity"><i>We help your work better!</i></p>
+      <p>We start from 2019，</p>
+    </section>
+</div>
+
+
+<div class="container" >
+  <img src="{{url_for('static',filename='images/profile/p1.jpg')}}" alt="Avatar" style="width:90px">
+  <p><span>蠟筆小新</span> CEO at 向日葵幼稚園</p>
+  <p>總策畫</p>
+</div>
+
+<div class="container">
+  <img src="{{url_for('static',filename='images/profile/p2.jpg')}}" alt="Avatar" style="width:90px">
+  <p><span >多啦a夢</span> 救世主</p>
+  <p>萬能丹</p>
+</div>
+
+<div class="container">
+  <img src="{{url_for('static',filename='images/profile/p3.jpg')}}" alt="Avatar" style="width:90px">
+  <p><span>大雄</span>Kind-man</p>
+  <p>平凡人</p>
+</div>
+
+<div class="container">
+  <img src="{{url_for('static',filename='images/profile/p4.jpg')}}" alt="Avatar" style="width:90px">
+  <p><span >靜香</span>國小女神</p>
+  <p>訂閱，分享，記得開啟小鈴鐺</p>
+</div>
+
+<div class="container">
+  <img src="{{url_for('static',filename='images/profile/4.gif')}}" alt="Avatar" style="width:90px">
+  <p><span>橘子</span>歡樂家族一員</p>
+  <p></p>
+</div>
+
+<div class="container">
+  <img src="{{url_for('static',filename='images/profile/5.jpeg')}}" alt="Avatar" style="width:90px">
+  <p><span >野原廣志</span>上班族</p>
+  <p>不可忽視的人生勝利組</p>
+</div>
+{% endblock %}

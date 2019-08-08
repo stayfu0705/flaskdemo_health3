@@ -1,0 +1,93 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Hospital Assistant {% endblock %}
+
+{% block head %}
+    {{super()}}
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='css/base.css') }}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/HAicon.ico')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
+{% endblock %}
+
+{% block navbar %}
+
+
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-grey" id="mySidebar" style="display:none">
+
+        <button class="w3-bar w3-button w3-large "onclick="w3_close()" >✖</button>
+         <div class="navbar-collapse collapse" id="navbar-menu" >
+             <div class="w3-sidebar w3-bar-block w3-middle" aria-hidden="true" style="width:14%">
+              <form class="navbar-form navbar-center">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="快速導覽" style="width:73%">
+                  <button type="submit" class="btn "><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                </div>
+              </form>
+              <a href="/" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-home"></span> 首頁</a>
+              {% if current_user.is_authenticated %}
+              <a href="/dashboard/" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-stats"></span> 醫療儀錶板</a>
+              <a href="/reserve/" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-calendar"></span> 醫療排程系統</a>
+              {% endif %}
+              <a href="/about_us/" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-briefcase"></span> 關於我們</a>
+              <a href="/calendar_right/" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-calendar"></span> 行事曆</a>
+            </div>
+         </div>
+
+    </div>
+
+<div id="main">
+    <div class="w3-bar " style="background:white">
+        <button id="openNav" class="w3-button w3-teal w3-xlarge w3-white" onclick="w3_open()" style="display: inline-block">&#9776;</button>
+        <span>
+            <a href="/"><img src="{{url_for('static',filename='images/logo2.png')}}"></a>
+        </span>
+        <span>
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                <li style="margin-right:30px;"><a href="/auth/logout"><span class="glyphicon glyphicon-log-out"></span> 登出 </a></li>
+                {% else %}
+                <li><a href="/auth/login/user"><span class="glyphicon glyphicon-log-in"></span> 登入 </a></li>
+                <li style="padding-right: 30px"><a href="/auth/register"><span class="glyphicon glyphicon-user"></span> 註冊 </a></li>
+                {% endif %}
+            </ul>
+        </span>
+    </div>
+
+
+
+
+<script>
+//buttom
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "15%";
+  document.getElementById("mySidebar").style.width = "15%";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+}
+
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class = "container">
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}
+
